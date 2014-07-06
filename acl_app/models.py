@@ -12,13 +12,13 @@ class Sponsor(models.Model):
         return self.name
 
 class Stage(models.Model):
-    name = models.CharField(max_length=400)
+    name = models.CharField(max_length=400, unique=True)
     sponsor = models.OneToOneField(Sponsor)
     def __str__(self):
         return self.name
 
-class Artist(models.Model):
-    name = models.CharField(max_length=400)
+class Band(models.Model):
+    name = models.CharField(max_length=400, unique=True)
     label = models.CharField(max_length=400)
     origin = models.CharField(max_length=400)
     website = models.CharField(max_length=400)
@@ -30,14 +30,17 @@ class Artist(models.Model):
 class Band_Photo(models.Model):
     #artist_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
     file_name = models.CharField(max_length=400)
-    artist_id = models.ForeignKey(Artist)
+    band = models.ForeignKey(Band)
     def __str__(self):
         return self.file_name
 
 class Band_Member(models.Model):
     first_name = models.CharField(max_length=400)
     last_name = models.CharField(max_length=400)
-    band = models.ForeignKey(Artist)
+    band = models.ForeignKey(Band)
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        ret_str = first_name
+        if(last_name):
+            ret_str += " " + last_name
+        return ret_str
 
