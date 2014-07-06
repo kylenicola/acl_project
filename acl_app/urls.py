@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
-from acl_app import views
+
+from cs373 import views
 
 urlpatterns = patterns('',
-                       url(r'^$', views.index, name='index'))
+    url(r'^$', views.index, name='index')
+)
