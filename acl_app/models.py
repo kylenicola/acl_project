@@ -1,7 +1,12 @@
 
 from django.db import models
 
-# Create your models here.
+
+class Stage(models.Model):
+    name = models.CharField(max_length=400, unique=True)
+
+    def __str__(self):
+        return self.name
 
 class Sponsor(models.Model):
     name = models.CharField(max_length=400)
@@ -9,12 +14,6 @@ class Sponsor(models.Model):
     business_type = models.CharField(max_length=400)
     website = models.CharField(max_length=400)
     stage = models.ForeignKey(Stage)
-
-    def __str__(self):
-        return self.name
-
-class Stage(models.Model):
-    name = models.CharField(max_length=400, unique=True)
 
     def __str__(self):
         return self.name
