@@ -10,7 +10,7 @@ class Stage(models.Model):
 
 class Sponsor(models.Model):
     name = models.CharField(max_length=400)
-    sponsor_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
+    #sponsor_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
     business_type = models.CharField(max_length=400)
     website = models.CharField(max_length=400)
     stage = models.ForeignKey(Stage, blank=True, null=True)
@@ -30,7 +30,7 @@ class Artist(models.Model):
         return self.name
 
 class Artist_Photo(models.Model):
-    artist_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
+    #artist_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
     file_name = models.CharField(max_length=400)
     artist = models.ForeignKey(Artist)
 
@@ -43,8 +43,8 @@ class Artist_Member(models.Model):
     artist = models.ForeignKey(Artist)
 
     def __str__(self):
-        ret_str = self.first_name
-        if(self.last_name):
-            ret_str += " " + self.last_name
+        ret_str = first_name
+        if(last_name):
+            ret_str += " " + last_name
         return ret_str
 
