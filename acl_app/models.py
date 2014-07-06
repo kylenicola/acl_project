@@ -3,17 +3,19 @@ from django.db import models
 
 # Create your models here.
 
+
+
+class Stage(models.Model):
+    name = models.CharField(max_length=400)
+    def __str__(self):
+        return self.name
+
 class Sponsor(models.Model):
     name = models.CharField(max_length=400)
     #sponsor_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
     business_type = models.CharField(max_length=400)
     website = models.CharField(max_length=400)
     stage = models.OneToOneField(Stage)
-    def __str__(self):
-        return self.name
-
-class Stage(models.Model):
-    name = models.CharField(max_length=400)
     def __str__(self):
         return self.name
 
