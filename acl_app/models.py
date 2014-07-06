@@ -43,8 +43,8 @@ class Artist_Member(models.Model):
     artist = models.ForeignKey(Artist)
 
     def __str__(self):
-        ret_str = first_name
-        if(last_name):
-            ret_str += " " + last_name
+        ret_str = self.first_name
+        if(self.last_name):
+            ret_str += " " + self.last_name
         return ret_str
 
